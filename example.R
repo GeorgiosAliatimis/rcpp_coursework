@@ -19,7 +19,7 @@ random_stable_matching <- function(n){
     acceptor_matrix = list()
     for (i in 1:n) acceptor_matrix[[i]] = sample(n)
     start = Sys.time()
-    out = stable_matching_int(proposer_matrix,proposer_syms,acceptor_matrix,acceptor_syms)
+    out = stable_matching(proposer_matrix,proposer_syms,acceptor_matrix,acceptor_syms)
     Sys.time()-start
 }
 
