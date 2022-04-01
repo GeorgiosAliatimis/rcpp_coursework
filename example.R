@@ -1,15 +1,15 @@
 # library(Rcpp)
 # sourceCpp("stable_matching.cpp")
+install.packages("devtools") 
+install_github("GeorgiosAliatimis/rcpp_coursework") 
 library("praxi")
-source("./stable_matching.R")
 
 proposer_matrix = list(c("c","b","d","a"), c("b","a","c","d"), c("b","d","a","c"), c("c","a","d","b") )
 acceptor_matrix = list(c("A","B","D","C"), c("C","A","D","B"), c("C","B","D","A"), c("B","A","C","D") )
 proposer_syms = c("A","B","C","D")
 acceptor_syms = c("a","b","c","d")
-out = stable_matching(proposer_matrix,proposer_syms,acceptor_matrix,acceptor_syms)
-
-print(out)
+matching = stable_matching(proposer_matrix,proposer_syms,acceptor_matrix,acceptor_syms)
+print(matching)
 
 random_stable_matching <- function(n){
     proposer_syms = 1:n
@@ -36,4 +36,3 @@ for(n in c(10,100,1000) ) print(mean( sapply( rep(n,repetitions), random_stable_
 # [1] 9.375811e-05
 # [1] 0.008967042
 # [1] 0.7558424
-# [0.0005329424515366554, 0.01679993639700115, 1.5274148536846042]
